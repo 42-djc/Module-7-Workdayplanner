@@ -16,31 +16,26 @@ $("#currentDay").text(currentDate);
   function colourCode() {
     let currentHour = moment().hour();
     console.log(currentHour);
-
+  
     $(".time-block").each(function () {
-    let timeblockHour = parseInt($(this).attr("id"));
-
-    if (timeblockHour > currentHour) {
-      $(this).addClass("future");
-    } else if (timeblockHour === currentHour) {
-      $(this).addClass("present");
-    } else {
-      $(this).addClass("past");
-    }
-  });
-}
+      let timeblockHour = parseInt($(this).attr("id"));
+  
+      if (timeblockHour > currentHour) {
+        $(this).addClass("future");
+      } else if (timeblockHour === currentHour) {
+        $(this).addClass("present");
+      } else {
+        $(this).addClass("past");
+      }
+    });
+  }
   
 
   colourCode();
 
 // code that pulls localstorage values into the description
-
-  $("#9am .description").val(localStorage.getItem("9am"));
-  $("#10am .description").val(localStorage.getItem("10am"));
-  $("#11am .description").val(localStorage.getItem("11am"));
-  $("#12pm .description").val(localStorage.getItem("12pm"));
-  $("#1pm .description").val(localStorage.getItem("1pm"));
-  $("#2pm .description").val(localStorage.getItem("2pm"));
-  $("#3pm .description").val(localStorage.getItem("3pm"));
-  $("#4pm .description").val(localStorage.getItem("4pm"));
-  $("#5pm .description").val(localStorage.getItem("5pm"));
+// Retrieve text content of textareas from localStorage as a loop instead
+$(".time-block .description").each(function () {
+  var id = $(this).parent().attr("id");
+  $(this).val(localStorage.getItem(id));
+});
