@@ -12,4 +12,24 @@ $("#currentDay").text(currentDate);
     console.log(localStorage);
   });
 
+  function colourCode() {
+    let currentHour = moment().hour();
+    console.log(currentHour);
+
+    $(".time-block").each(function () {
+    let timeblockHour = parseInt($(this).attr("id"));
+
+    if (timeblockHour > currentHour) {
+      $(this).addClass("future");
+    } else if (timeblockHour === currentHour) {
+      $(this).addClass("present");
+    } else {
+      $(this).addClass("past");
+    }
+  });
+}
+  
+
+  colourCode();
+
   $("#9am .description").val(localStorage.getItem("9am"));
