@@ -11,3 +11,5 @@ $("#currentDay").text(currentDate);
     localStorage.setItem(time, text);
     console.log(localStorage);
   });
+
+  $("#9am .description").val(localStorage.getItem("9am"));
