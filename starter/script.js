@@ -12,6 +12,7 @@ $("#currentDay").text(currentDate);
     console.log(localStorage);
   });
 
+  // Function to loop over time blocks, compare hour vs current hour and add CSS classes
   function colourCode() {
     let currentHour = moment().hour();
     console.log(currentHour);
@@ -33,3 +34,5 @@ $("#currentDay").text(currentDate);
   colourCode();
 
   $("#9am .description").val(localStorage.getItem("9am"));
+  $("#10am .description").val(localStorage.getItem("10am"));
+  $("#11am .description").val(localStorage.getItem("11am"));
